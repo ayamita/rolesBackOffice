@@ -1,0 +1,76 @@
+<%- include ../layouts/header.ejs %>
+        <!-- Content page -->
+        <div class="container-fluid">
+            <div class="page-header">
+                <h1 class="text-titles"> USUARIOS <br> </h1>
+            </div>
+        </div>
+
+
+        <!-- Panel nuevo administrador -->
+        <div class="container-fluid">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> &nbsp; FORMULARIO DEL USUARIO</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="post" action="/usuarios">
+                        <fieldset class="col-md-6"> 
+                            <legend><i class="zmdi zmdi-account-box"></i> &nbsp; Datos del Usuario</legend>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-12 ">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Nombre *</label>
+                                            <input class="form-control" type="text" name="nombre" required="" maxlength="30">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Usuario *</label>
+                                            <input class="form-control" type="text" name="usuario" required="" maxlength="30">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-xs-12">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Contraseña *</label>
+                                            <input class="form-control" type="text" name="password"  maxlength="30">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>                           
+                        </fieldset>
+                      
+                        <fieldset class="col-md-6">
+                            <legend><i class="zmdi zmdi-star"></i> &nbsp; Nivel de privilegios</legend>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <% for( let permiso=0; permiso < permisos.length; permiso++ ) { %>
+                                        <div class="checkbox checkbox-primary">
+                                            <label class="col-md-12">
+												<input type="checkbox" name="<%= permisos[permiso].ruta %>" value="true" >
+												<i style="font-family: bold"></i> &nbsp; <%= permisos[permiso].nombre %>
+											</label>  
+                                        </div>                                          
+                                        <% } %>                                                                          
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="col-md-12">
+                            <p class="text-center" style="margin-top: 20px;">
+                                <button type="submit" class="btn btn-info btn-raised btn-sm">Guardar</button>
+                            </p>
+                        </fieldset>
+
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+<%- include ../layouts/footer.ejs %>
