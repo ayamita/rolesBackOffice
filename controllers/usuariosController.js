@@ -31,11 +31,12 @@ module.exports = {
             videojuegos: req.body.videojuegos
           };
           
-        console.log(registro)
+        //console.log(registro)
     
         usuario.insertar(con, registro, function (err, datos) {
-          res.redirect("/usuarios");
+            res.redirect("/usuarios");
         });
+      
         
       },
     
