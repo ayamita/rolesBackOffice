@@ -14,14 +14,7 @@ module.exports = {
       "INNER JOIN usuarios ON permisosusuario.idusuario = usuarios.idusuario " +
       "INNER JOIN permisos ON permisosusuario.idpermiso = permisos.idpermiso " +
       "where usuarios.idusuario =?", [id], funcion);
-    },
-
-    actualizar:function(conexion, datos, funcion){
-      conexion.query(
-        "Update usuarios set usuario = ?, contraseña = ?, usuario = ? where idusuario = ?", [datos.nombre, datos.usuario, datos.password, datos.id],        
-        funcion
-      );
-    },
+    },    
 
     insertar: function (conexion, datos, funcion) {
       conexion.query(
@@ -48,7 +41,33 @@ module.exports = {
           );                   
         }
       );
-  },        
+    },        
+
+    actualizar:function(conexion, datos, funcion){
+      conexion.query(
+        "Update usuarios set usuario = ?, contraseña = ?, usuario = ? where idusuario = ?", [datos.nombre, datos.usuario, datos.password, datos.id],        
+        funcion
+      );
+    },
+
+    actualizarPermisos:function(conexion, datos, funcion){     
+      conexion.query(
+        "Update permisosusuario set estatys = ? where idusuario = ? and idpermiso = 1", [datos.inicio, datos.id],                
+      );
+      conexion.query(
+        "Update permisosusuario set estatys = ? where idusuario = ? and idpermiso = 2", [datos.fotos, datos.id],                
+      );
+      conexion.query(
+        "Update permisosusuario set estatys = ? where idusuario = ? and idpermiso = 3", [datos.ilustraciones, datos.id],                
+      );
+      conexion.query(
+        "Update permisosusuario set estatys = ? where idusuario = ? and idpermiso = 4", [datos.juegos, datos.id],               
+      );
+      conexion.query(
+        "Update permisosusuario set estatys = ? where idusuario = ? and idpermiso = 5", [datos.videojuegos, datos.id],        
+        funcion
+      );
+    },
   
     borrar:function(conexion, id, funcion){
       conexion.query("Delete from usuarios where idusuario=?", [id], funcion);

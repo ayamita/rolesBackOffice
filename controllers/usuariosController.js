@@ -47,7 +47,9 @@ module.exports = {
           };   
       
         usuario.actualizar(con, registro, function (err, datos) {
-            console.log(registro);            
+            usuario.actualizarPermisos(con, registro, function(err, datos){                
+                res.redirect('/usuarios'); 
+            })                       
         });
     },
 
@@ -68,6 +70,5 @@ module.exports = {
         console.log(registros)   
         res.render("usuarios/editar", { title:'Usuarios', usuarios:registros[0], permisos:registros});
         
-    });
-    },
+    });},
 }
