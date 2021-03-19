@@ -30,8 +30,16 @@
                                         <td><%= usuarios[usuario].nombre %></td>
                                         <td><%= usuarios[usuario].usuario %></td>
                                         <td><%= usuarios[usuario].contraseña %></td>                                            
-                                        <td><button type="submit" class="btn btn-success ">Editar</button></td>
-                                        <td><button type="submit" class="btn btn-danger">Eliminar</button></td>
+                                        <td>
+                                            <form class="form-inline" method="post" action="/usuarios/editar/<%= usuarios[usuario].idusuario%>">
+                                                <button type="submit" class="btn btn-success ">Editar</button> 
+                                            </form>
+                                        </td>
+                                        <td>   
+                                            <form class="form-inline" method="post" action="/usuarios/eliminar/<%= usuarios[usuario].idusuario%>">
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>                                            
+                                            </form>                                                                         
+                                        </td>
                                     </tr>
                                 <% } %>
                             </tbody>

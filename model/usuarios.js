@@ -8,15 +8,22 @@ module.exports = {
       conexion.query("Select * from permisos", funcion);
     },
 
-    /*
-    insertar: function (conexion, datos, funcion) {
+    retornarDatosIdUsuario: function (conexion, id, funcion) {
+      conexion.query("SELECT usuarios.idusuario, permisos.idpermiso, permisosusuario.estatys, usuarios.nombre, usuarios.usuario, usuarios.contraseña, usuarios.superusuario, permisos.nombre as nombre_permiso, permisos.ruta " +
+      "FROM permisosusuario "+
+      "INNER JOIN usuarios ON permisosusuario.idusuario = usuarios.idusuario " +
+      "INNER JOIN permisos ON permisosusuario.idpermiso = permisos.idpermiso " +
+      "where usuarios.idusuario =?", [id], funcion);
+    },
+
+    actualizar:function(conexion, datos, funcion){
       conexion.query(
-        "Insert into usuarios (nombre,usuario,contraseña) values (?,?,?)", [datos.nombre, datos.usuario, datos.password],
+        "Update usuarios set usuario = ?, contraseña = ?, usuario = ? where idusuario = ?", [datos.nombre, datos.usuario, datos.password, datos.id],        
         funcion
       );
-    },*/
+    },
 
-     insertar: function (conexion, datos, funcion) {
+    insertar: function (conexion, datos, funcion) {
       conexion.query(
         "Insert into usuarios (nombre,usuario,contraseña) values (?,?,?)", [datos.nombre, datos.usuario, datos.password],
         function (err, result){
@@ -41,8 +48,13 @@ module.exports = {
           );                   
         }
       );
-    },  
-    
+  },        
   
+    borrar:function(conexion, id, funcion){
+      conexion.query("Delete from usuarios where idusuario=?", [id], funcion);
+    },
 
+    borrarPermisos:function(conexion, id, funcion){
+      conexion.query("Delete from permisosusuario where idusuario=?", [id], funcion);
+    }
 }
