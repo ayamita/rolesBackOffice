@@ -5,7 +5,9 @@
                 <h1 class="text-titles"> USUARIOS <br> </h1>
             </div>
         </div>
-
+        <div class="container-fluid">
+            <a href="/usuarios/crear" class="btn btn-primary" type="button" style="color: aliceblue;">Crear Nuevo Usuario</a>
+        </div>    
         <!-- Panel nuevo administrador -->                    
         <div class="container-fluid">
             <div class="panel panel-success">
@@ -32,12 +34,12 @@
                                         <td><%= usuarios[usuario].contraseña %></td>                                            
                                         <td>
                                             <form class="form-inline" method="post" action="/usuarios/editar/<%= usuarios[usuario].idusuario%>">
-                                                <button type="submit" class="btn btn-success ">Editar</button> 
+                                                <button type="submit" class="btn btn-success" style="color: aliceblue;">Editar</button> 
                                             </form>
                                         </td>
                                         <td>   
                                             <form class="form-inline" method="post" action="/usuarios/eliminar/<%= usuarios[usuario].idusuario%>">
-                                                <button type="submit" class="btn btn-danger">Eliminar</button>                                            
+                                                <button type="submit" class="btn btn-danger" style="color: aliceblue;">Eliminar</button>                                            
                                             </form>                                                                         
                                         </td>
                                     </tr>

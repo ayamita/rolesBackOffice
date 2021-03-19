@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
     contraseña,
   }
   if (usuario && contraseña) {
-      db.query('SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?', [datos.usuario, datos.contraseña], function(err,resultados){
+      db.query('SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ? and superusuario = 1 ', [datos.usuario, datos.contraseña], function(err,resultados){
           if(resultados.length > 0){
               res.redirect('usuarios');
           }else{
