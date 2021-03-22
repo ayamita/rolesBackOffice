@@ -45,7 +45,7 @@ module.exports = {
 
     actualizar:function(conexion, datos, funcion){
       conexion.query(
-        "Update usuarios set usuario = ?, contraseña = ?, usuario = ? where idusuario = ?", [datos.nombre, datos.usuario, datos.password, datos.id],        
+        "Update usuarios set nombre = ?, usuario = ?, contraseña = ? where idusuario = ?", [datos.nombre, datos.usuario, datos.password, datos.id],        
         funcion
       );
     },

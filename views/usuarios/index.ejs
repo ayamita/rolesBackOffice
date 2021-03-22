@@ -1,10 +1,5 @@
 <%- include ../layouts/header.ejs %>
-        <!-- Content page -->
-        <div class="container-fluid">
-            <div class="page-header">
-                <h1 class="text-titles"> USUARIOS <br> </h1>
-            </div>
-        </div>
+
         <div class="container-fluid">
             <a href="/usuarios/crear" class="btn btn-primary" type="button" style="color: aliceblue;">Crear Nuevo Usuario</a>
         </div>    
@@ -14,15 +9,19 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">&nbsp; LISTA DE USUARIOS</h3>
                 </div>
+
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover text-center">
+                        <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
                                     <th class="text-center">#</th>
                                     <th class="text-center">Nombre</th>
                                     <th class="text-center">Usuario</th>
                                     <th class="text-center">Contraseña</th>
+                                    <th class="text-center"></th>
+                                    <th class="text-center"></th>
+    
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,6 +44,16 @@
                                     </tr>
                                 <% } %>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Nombre</th>
+                                    <th class="text-center">Usuario</th>
+                                    <th class="text-center">Contraseña</th>
+                                    <th class="text-center"></th>
+                                    <th class="text-center"></th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                     <nav class="text-center">

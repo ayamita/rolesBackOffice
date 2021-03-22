@@ -14,7 +14,9 @@ router.post('/', function(req, res, next) {
   }
   if (usuario && contraseña) {
       db.query('SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ? and superusuario = 1 ', [datos.usuario, datos.contraseña], function(err,resultados){
-          if(resultados.length > 0){
+        const superusuario = resultados[0];
+        console.log(superusuario);
+          if(resultados.length > 0){            
               res.redirect('usuarios');
           }else{
               res.send('El correo o contraseña es incorrecto');
