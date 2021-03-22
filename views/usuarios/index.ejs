@@ -1,13 +1,7 @@
-<%- include ../layouts/header.ejs %>   
+<%- include ../layouts/header.ejs %>
         <br>
         <div class="container-fluid">
             <a href="/usuarios/crear" class="btn btn-primary" type="button" style="color: aliceblue;">Crear Nuevo Usuario</a>
-            <% if(message.length > 0) { %>
-                <div class="alert alert-success" role="alert">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <%= message%>
-                </div>
-            <% }%>   
         </div>    
         <!-- Panel nuevo administrador -->                    
         <div class="container-fluid">
