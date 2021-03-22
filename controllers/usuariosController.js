@@ -13,6 +13,7 @@ module.exports = {
     crear: function (req, res) {
         usuario.obtenerPermisos(con,function(err,datos) {
             res.render("usuarios/crear", {title:"Permisos", permisos:datos});
+            
         });        
     },
 

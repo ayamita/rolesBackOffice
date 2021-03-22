@@ -1,26 +1,23 @@
 <%- include ../layouts/header.ejs %>
-
+        <br>
         <div class="container-fluid">
             <a href="/usuarios/crear" class="btn btn-primary" type="button" style="color: aliceblue;">Crear Nuevo Usuario</a>
         </div>    
         <!-- Panel nuevo administrador -->                    
         <div class="container-fluid">
             <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">&nbsp; LISTA DE USUARIOS</h3>
+                <div class="panel-heading" style="background-color:#7F8C8D ;">
+                    <h3 class="panel-title" style="color: #fff;">&nbsp; LISTA DE USUARIOS</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="table-responsive">
+                    
                         <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Nombre</th>
-                                    <th>Usuario</th>
-                                    <th>Contraseña</th>
-                                    <th></th>
-                                    <th></th>
-    
+                                    <th>Usuario</th>                              
+                                    <th>Acciones</th>                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -28,18 +25,20 @@
                                     <tr>
                                         <td><%= usuarios[usuario].idusuario %></td>
                                         <td><%= usuarios[usuario].nombre %></td>
-                                        <td><%= usuarios[usuario].usuario %></td>
-                                        <td><%= usuarios[usuario].contraseña %></td>                                            
+                                        <td><%= usuarios[usuario].usuario %></td>                                                                                 
                                         <td>
-                                            <form class="form-inline" method="post" action="/usuarios/editar/<%= usuarios[usuario].idusuario%>">
-                                                <button type="submit" class="btn btn-success" style="color: aliceblue;">Editar</button> 
-                                            </form>
-                                        </td>
-                                        <td>   
-                                            <form class="form-inline" method="post" action="/usuarios/eliminar/<%= usuarios[usuario].idusuario%>">
-                                                <button type="submit" class="btn btn-danger" style="color: aliceblue;">Eliminar</button>                                            
-                                            </form>                                                                         
-                                        </td>
+                                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                                <form class="form-inline" method="post" action="/usuarios/editar/<%= usuarios[usuario].idusuario%>">
+                                                    <button type="submit" class="btn btn-success" style="color: aliceblue;">Editar</button> 
+                                                </form>
+                                            </div>
+                                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                                <form class="form-inline" method="post" action="/usuarios/eliminar/<%= usuarios[usuario].idusuario%>">
+                                                    <button type="submit" class="btn btn-danger" style="color: aliceblue;">Eliminar</button>                                            
+                                                </form>   
+                                            </div>
+                                            
+                                        </td>                                      
                                     </tr>
                                 <% } %>
                             </tbody>
@@ -48,13 +47,11 @@
                                     <th>#</th>
                                     <th>Nombre</th>
                                     <th>Usuario</th>
-                                    <th>Contraseña</th>
-                                    <th></th>
-                                    <th></th>
+                                    <th></th>                               
                                 </tr>
                             </tfoot>
                         </table>
-                    </div>                   
+                                      
                 </div>
             </div>
         </div>
