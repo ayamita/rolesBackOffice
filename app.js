@@ -4,13 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 
 var session = require('express-session');
+var flush = require('connect-flash')
 
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var login = require('./routes/login');
 var usuarios = require('./routes/usuarios');
-
 
 var app = express();
 
@@ -29,6 +29,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
+app.use(flush());
 
 app.use(express.static(path.join(__dirname, 'public')));
 

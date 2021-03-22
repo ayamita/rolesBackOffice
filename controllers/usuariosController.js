@@ -5,15 +5,21 @@ module.exports = {
 
     index:function(req,res){        
         usuario.obtener(con,function(err,datos) {
-            console.log(datos);
-            res.render('usuarios/index', {title: "Usuarios", usuarios:datos});
+            console.log(datos);            
+            res.render('usuarios/index', { message: req.flash('message'), usuarios:datos});
+        });
+    },
+
+    regresar:function (req, res) {
+        usuario.obtener(con,function(err,datos) {
+            console.log(datos);            
+            res.render('usuarios/index', { usuarios:datos});
         });
     },
 
     crear: function (req, res) {
-        usuario.obtenerPermisos(con,function(err,datos) {
+        usuario.obtenerPermisos(con,function(err,datos) {           
             res.render("usuarios/crear", {title:"Permisos", permisos:datos});
-            
         });        
     },
 
@@ -30,6 +36,7 @@ module.exports = {
           };          
         //console.log(registro)
         usuario.insertar(con, registro, function (err, datos) {
+            req.flash('message','El usuario fue ingresado correctamente')
             res.redirect("/usuarios");
         });              
       },
@@ -48,7 +55,8 @@ module.exports = {
           };   
       
         usuario.actualizar(con, registro, function (err, datos) {
-            usuario.actualizarPermisos(con, registro, function(err, datos){                
+            usuario.actualizarPermisos(con, registro, function(err, datos){ 
+                req.flash('message','Se actualizo correctamente el usuario')               
                 res.redirect('/usuarios'); 
             })                       
         });
@@ -60,6 +68,7 @@ module.exports = {
         usuario.retornarDatosIdUsuario(con, req.params.id, function (err) {
         usuario.borrar(con, req.params.id, function (err) {
             usuario.borrarPermisos(con, req.params.id, function (err) {
+                req.flash('message','Se elimino correctamente el usuario')
                 res.redirect('/usuarios');
             })
         })
