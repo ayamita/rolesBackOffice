@@ -22,9 +22,7 @@ module.exports = {
         function (err, result){
           if (err) throw err;        
           console.log(result.insertId);
-
           var idusuario = result.insertId;
-
           var values = [
             [idusuario, 1, datos.inicio],
             [idusuario, 2, datos.fotos],
@@ -32,9 +30,7 @@ module.exports = {
             [idusuario, 4, datos.juegos],
             [idusuario, 5, datos.videojuegos]
           ];
-          
           console.log(values);
-
           conexion.query(
             "Insert into permisosusuario values ?", [values],
             funcion
