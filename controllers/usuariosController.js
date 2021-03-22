@@ -6,7 +6,7 @@ module.exports = {
     index:function(req,res){        
         usuario.obtener(con,function(err,datos) {
             console.log(datos);
-            res.render('usuarios/index', {title: "Usuarios", usuarios:datos});
+            res.render('usuarios/index', { messages: req.flash('message'), usuarios:datos});
         });
     },
 
@@ -30,6 +30,7 @@ module.exports = {
           };          
         //console.log(registro)
         usuario.insertar(con, registro, function (err, datos) {
+            req.flash('message', 'El usuario se creo correctamente');
             res.redirect("/usuarios");
         });              
       },
@@ -48,7 +49,8 @@ module.exports = {
           };   
       
         usuario.actualizar(con, registro, function (err, datos) {
-            usuario.actualizarPermisos(con, registro, function(err, datos){                
+            usuario.actualizarPermisos(con, registro, function(err, datos){     
+                req.flash('message', 'El usuario se modifico correctamente');           
                 res.redirect('/usuarios'); 
             })                       
         });
@@ -60,6 +62,7 @@ module.exports = {
         usuario.retornarDatosIdUsuario(con, req.params.id, function (err) {
         usuario.borrar(con, req.params.id, function (err) {
             usuario.borrarPermisos(con, req.params.id, function (err) {
+                req.flash('message', 'El usuario se elimino correctamente');
                 res.redirect('/usuarios');
             })
         })

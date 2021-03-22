@@ -3,6 +3,13 @@
         <div class="container-fluid">
             <a href="/usuarios/crear" class="btn btn-primary" type="button" style="color: aliceblue;">Crear Nuevo Usuario</a>
         </div>    
+
+        <% if(message.length > 0) {%>
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>¡Excelente!</strong> <%= message %>
+              </div>
+        <% } %>
         <!-- Panel nuevo administrador -->                    
         <div class="container-fluid">
             <div class="panel panel-success">
