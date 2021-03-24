@@ -6,7 +6,7 @@ module.exports = {
     index:function(req,res){        
         usuario.obtener(con,function(err,datos) {
             console.log(datos);
-            res.render('usuarios/index', { messages: req.flash('message'), usuarios:datos});
+            res.render('usuarios/index', { message: req.flash('message'), usuarios:datos});
         });
     },
 

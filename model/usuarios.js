@@ -13,7 +13,7 @@ module.exports = {
       "FROM permisosusuario "+
       "INNER JOIN usuarios ON permisosusuario.idusuario = usuarios.idusuario " +
       "INNER JOIN permisos ON permisosusuario.idpermiso = permisos.idpermiso " +
-      "where usuarios.idusuario =?", [id], funcion);
+      "where usuarios.idusuario =? order by idpermiso asc ", [id], funcion);
     },    
 
     insertar: function (conexion, datos, funcion) {
