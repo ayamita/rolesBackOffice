@@ -29,6 +29,7 @@ router.post('/', function(req, res, next) {
         req.flash('Fallo','Favor de llenar todos los campos');
         res.redirect('login');        
       res.end();
+      
   }
 });
   
