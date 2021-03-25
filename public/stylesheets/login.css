@@ -17,13 +17,14 @@ body {
 }
 
 .container {
-    width: 100vw;
+    width: 300vw;
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 7rem;
     padding: 0 2rem;
 }
+
 
 .img {
     display: flex;
@@ -36,13 +37,16 @@ body {
 }
 
 .login-container {
-    display: flex;
+    display:flex;
     align-items: center;
     text-align: center;
+    width:max-content;
 }
 
+
+
 .avatar {
-    width: 100px;
+    width: 200px;
 }
 
 form h2 {
@@ -115,13 +119,12 @@ form h2 {
 
 .input-div>div {
     position: relative;
-    height: 45px;
-}
+    height: 55px;}
 
 .input-div>div h5 {
     position: absolute;
     left: 10px;
-    top: 50%;
+    top: 10%;
     transform: translateY(-50%);
     color: #999;
     font-size: 18px;
@@ -177,3 +180,4 @@ a:hover {
 .btn:hover {
     background-position: right;
 }
+

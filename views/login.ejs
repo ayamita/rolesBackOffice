@@ -6,16 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+   
 </head>
 
-<body>
-    <img class="wave" src="">
-    <div class="container">
+<body>    
+    
+    <div class="container">              
         <div class="img">
             <img src="/images/Login/undraw_Accept_request_re_d81h.png">
         </div>
-        <div class="login-container">
+        <div class="login-container">            
             <form method="POST">
                 <img class="avatar" src="/images/Login/undraw_profile_pic_ic5t.png">
                 <h2>Bienvenido</h2>
@@ -39,10 +40,21 @@
                 </div>
                 <a href="#">Olvide mi contraseña</a>
                 <input type="submit" class="btn" value="Login">
-            </form>
+                      
+            <% if(message.length > 0) {%>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <%= message%>                
+                </div>
+            <% } %>
+        
+            </form>            
         </div>
+         
     </div>
+   
     <script type="text/javascript" src="/javascripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

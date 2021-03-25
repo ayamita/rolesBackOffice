@@ -3,7 +3,7 @@ var router = express.Router();
 var db=require("../config/conexion");
 
 router.get('/', function(req, res, next) {
-    res.render('login');
+    res.render('login', { message: req.flash('Fallo')});
   });
 
 router.post('/', function(req, res, next) {
@@ -17,15 +17,17 @@ router.post('/', function(req, res, next) {
         const superusuario = resultados[0];
         console.log(superusuario);
           if(resultados.length > 0){        
-              res.redirect('usuarios');
+              res.redirect('usuarios');              
           }else{
-              res.send('El correo o contraseña es incorrecto');
+              req.flash('Fallo','El correo o contraseña es incorrecto');
+              res.redirect('login');
           }
           res.end();
           console.log(resultados);
       });
       }else{
-      res.send('Favor de ingresar correo y contraseña');
+        req.flash('Fallo','Favor de llenar todos los campos');
+        res.redirect('login');        
       res.end();
   }
 });
